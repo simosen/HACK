@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système piraté</title>
+    <style>
+        body {
+            background-color: black;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: blink 1s infinite;
+        }
+        .terminal {
+            background-color: rgba(0, 50, 0, 0.5);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: left;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        #text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+        }
+        .button {
+            background-color: #0f0;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            display: none;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SYSTÈME PIRATÉ</h1>
+        <div class="terminal" id="terminal">
+            <div id="text"></div>
+        </div>
+        <button class="button" id="acceptButton">ACCEPTER LE SORT</button>
+    </div>
+
+    <script>
+        const messages = [
+            "Initialisation du système d'accès...",
+            "Contournement des protocoles de sécurité...",
+            "Accès aux fichiers personnels...",
+            "Collecte des données en cours...",
+            "Scan des réseaux sociaux...",
+            "Accès aux messages privés...",
+            "Téléchargement des photos...",
+            "Analyse des habitudes de navigation...",
+            "Compilation des informations sensibles...",
+            "Données verrouillées !",
+            "Tu as été piraté par ton ami !",
+            "Ceci est juste une blague, ne t'inquiète pas ;)"
+        ];
+
+        const terminal = document.getElementById("text");
+        const acceptButton = document.getElementById("acceptButton");
+        let index = 0;
+
+        function typeWriter() {
+            if (index < messages.length) {
+                terminal.innerHTML += messages[index] + "<br><br>";
+                terminal.scrollTop = terminal.scrollHeight;
+                index++;
+                setTimeout(typeWriter, 1000);
+            } else {
+                acceptButton.style.display = "inline-block";
+            }
+        }
+
+        window.onload = function() {
+            setTimeout(typeWriter, 1000);
+        };
+
+        acceptButton.addEventListener("click", function() {
+            alert("C'était juste une blague ! Tu n'as pas été piraté.");
+            terminal.innerHTML += "Blague terminée. Aucune donnée n'a été collectée.<br>";
+        });
+    </script>
+</body>
+</html>
